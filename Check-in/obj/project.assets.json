@@ -8829,11 +8829,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\Check-in\\Check-in\\Check-in.csproj",
+      "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\back-end\\Check-in\\Check-in.csproj",
       "projectName": "Check-in",
-      "projectPath": "C:\\Users\\Evers\\RiderProjects\\Check-in\\Check-in\\Check-in.csproj",
+      "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Check-in\\Check-in.csproj",
       "packagesPath": "C:\\Users\\Evers\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Evers\\RiderProjects\\Check-in\\Check-in\\obj\\",
+      "outputPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Check-in\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Evers\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8889,7 +8889,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

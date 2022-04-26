@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+Eh1KZoeJ807YS917gp+2z0QxE0+QqkBs6J/2XnWs8D1ZmB6NVuOZrnhoy1aiCMwWaD8JkmCPI7zEiOD68sjrw==",
+  "dgSpecHash": "RDPvUBCQUcV/gIiPJP87XTGE2vXtjiwm9nKSY6mA0TbBhAckhHlJFNoPmncFmiuN8WM6H34SVfGHVoFBul5YmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Evers\\RiderProjects\\Check-in\\Check-in\\Check-in.csproj",
+  "projectFilePath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Check-in\\Check-in.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Evers\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Evers\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

@@ -1,4 +1,6 @@
+using System.Text.Json.Nodes;
 using Check_in.Models;
+using Check_in.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Check_in.Controllers
@@ -7,27 +9,10 @@ namespace Check_in.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        [HttpGet(Name = "GetBoardingPassInfo")]
-        public BoardingPass Get(string code)
+        [HttpPost(Name = "PostBoardingPassInfo")]
+        public BoardingPass Post([FromBody] CodeString code)
         {
-            return new BoardingPass
-            {
-                FormatCode = code[..1],
-                Legs = code.Substring(1, 1),
-                FirstName = code.Substring(2, 20).Split("/")[1].Trim(),
-                LastName = code.Substring(2, 20).Split("/")[0].Trim(),
-                ElectronicTicketIndicator = code.Substring(22, 1),
-                OperatingCarrierPnrCode = code.Substring(23, 7),
-                FromCityAirportCode = code.Substring(30, 3),
-                ToCityAirportCode = code.Substring(33, 3),
-                OperatingCarrierDesignator = code.Substring(36, 3),
-                FlightNumber = code.Substring(39, 5),
-                DateOffFlight = code.Substring(44, 3),
-                CompartmentCode = code.Substring(47, 1),
-                SeatNumber = code.Substring(48, 4),
-                CheckInSequenceNumber = code.Substring(52, 5)
-            };
-
+            return new Parser().Decode(code.Code);
         }
     }
 }
