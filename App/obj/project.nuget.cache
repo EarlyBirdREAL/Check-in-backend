@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yyWIkjMgH67o4CyXJvWJq151h8W13RSODtl5GLFAJ9+oIgDLzRjABcljoFk6Xb8Q8e51F2fWxhahD8hWgL4DNw==",
+  "dgSpecHash": "edv915J3yHA54eMb2yP1bKbGoFwAMNBWQa8SSnoFmVbQUCXWcilWx2PDg1vxeylxmhb6GplpfVpxVTxx33BvjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Evers\\RiderProjects\\Check-in\\App\\App.csproj",
+  "projectFilePath": "D:\\School\\Check-in\\back-end\\App\\App.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
