@@ -11,88 +11,86 @@ public class Parser
 
     private static BoardingPass Parse(string code)
     {
-        var splitBoardingPass = code.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
         return new BoardingPass
         {
-            FormatCode = ParseFormatCode(splitBoardingPass),
-            Legs = ParseNumberOfLegs(splitBoardingPass),
-            PassengerName = ParsePassengerName(splitBoardingPass),
-            ElectronicTicketIndicator = ParseElectronicTicketIndicator(splitBoardingPass),
-            OperatingCarrierPnrCode = ParseOperatingCarrierPnrCode(splitBoardingPass),
-            FromCityAirportCode = ParseFromCityAirportCode(splitBoardingPass),
-            ToCityAirportCode = ParseToCityAirportCode(splitBoardingPass),
-            OperatingCarrierDesignator = ParseOperatingCarrierDesignator(splitBoardingPass),
-            FlightNumber = ParseFlightNumber(splitBoardingPass),
-            DateOfFlight = ParseDateOfFlight(splitBoardingPass),
-            CompartmentCode = ParseCompartmentCode(splitBoardingPass),
-            SeatNumber = ParseSeatNumber(splitBoardingPass),
-            CheckInSequenceNumber = ParseCheckInSequenceNumber(splitBoardingPass)
+            FormatCode = ParseFormatCode(code),
+            Legs = ParseNumberOfLegs(code),
+            PassengerName = ParsePassengerName(code),
+            ElectronicTicketIndicator = ParseElectronicTicketIndicator(code),
+            OperatingCarrierPnrCode = ParseOperatingCarrierPnrCode(code),
+            FromCityAirportCode = ParseFromCityAirportCode(code),
+            ToCityAirportCode = ParseToCityAirportCode(code),
+            OperatingCarrierDesignator = ParseOperatingCarrierDesignator(code),
+            FlightNumber = ParseFlightNumber(code),
+            DateOfFlight = ParseDateOfFlight(code),
+            CompartmentCode = ParseCompartmentCode(code),
+            SeatNumber = ParseSeatNumber(code),
+            CheckInSequenceNumber = ParseCheckInSequenceNumber(code)
         };
     }
 
-    private static string ParseFormatCode(string[] splitBoardingPass)
+    private static string ParseFormatCode(string boardingPass)
     {
-        return splitBoardingPass[0][..1];
+        return boardingPass[..1];
     }
 
-    private static int ParseNumberOfLegs(string[] splitBoardingPass)
+    private static int ParseNumberOfLegs(string boardingPass)
     {
-        return Convert.ToInt32(splitBoardingPass[0].Substring(1, 1));
+        return Convert.ToInt32(boardingPass.Substring(1, 1));
     }
 
-    private static string ParsePassengerName(string[] splitBoardingPass)
+    private static string ParsePassengerName(string boardingPass)
     {
-        return splitBoardingPass[0][2..];
+        return boardingPass.Substring(2, 20);
     }
 
-    private static string ParseElectronicTicketIndicator(string[] splitBoardingPass)
+    private static string ParseElectronicTicketIndicator(string boardingPass)
     {
-        return splitBoardingPass[1][..1];
+        return boardingPass.Substring(22, 1);
     }
 
-    private static string ParseOperatingCarrierPnrCode(string[] splitBoardingPass)
+    private static string ParseOperatingCarrierPnrCode(string boardingPass)
     {
-        return splitBoardingPass[1][1..];
+        return boardingPass.Substring(23, 7);
     }
 
-    private static string ParseFromCityAirportCode(string[] splitBoardingPass)
+    private static string ParseFromCityAirportCode(string boardingPass)
     {
-        return splitBoardingPass[2][..3];
+        return boardingPass.Substring(31, 3);
     }
 
-    private static string ParseToCityAirportCode(string[] splitBoardingPass)
+    private static string ParseToCityAirportCode(string boardingPass)
     {
-        return splitBoardingPass[2][3..6];
+        return boardingPass.Substring(33, 3);
     }
 
-    private static string ParseOperatingCarrierDesignator(string[] splitBoardingPass)
+    private static string ParseOperatingCarrierDesignator(string boardingPass)
     {
-        return splitBoardingPass[2][6..];
+        return boardingPass.Substring(36, 3);
     }
 
-    private static string ParseFlightNumber(string[] splitBoardingPass)
+    private static string ParseFlightNumber(string boardingPass)
     {
-        return splitBoardingPass[3];
+        return boardingPass.Substring(39, 5);
     }
 
-    private static string ParseDateOfFlight(string[] splitBoardingPass)
+    private static string ParseDateOfFlight(string boardingPass)
     {
-        return splitBoardingPass[4][..3];
+        return boardingPass.Substring(44, 3);
     }
 
-    private static string ParseCompartmentCode(string[] splitBoardingPass)
+    private static string ParseCompartmentCode(string boardingPass)
     {
-        return splitBoardingPass[4][3..4];
+        return boardingPass.Substring(47, 1);
     }
 
-    private static string ParseSeatNumber(string[] splitBoardingPass)
+    private static string ParseSeatNumber(string boardingPass)
     {
-        return splitBoardingPass[4][4..8];
+        return boardingPass.Substring(48, 4);
     }
 
-    private static string ParseCheckInSequenceNumber(string[] splitBoardingPass)
+    private static string ParseCheckInSequenceNumber(string boardingPass)
     {
-        return splitBoardingPass[4][8..];
+        return boardingPass.Substring(52, 5);
     }
 }

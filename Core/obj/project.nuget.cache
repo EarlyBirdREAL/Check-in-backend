@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hXHqBj32KtkcYIzrnjjvH6YnZroVrw8NT7Z5cp6xk8QbqRDYES+2an/5wPluk0q4C42L80eVsvLbetl0ZLDG9A==",
+  "dgSpecHash": "poS/f+/xSyFyE+gHi/VZdhUp5pGEYEPnbbzDtZFBFx1fG7UEKnMH8jOylUbG+BiYthKEeuPpng06qyNWizD30g==",
   "success": true,
-  "projectFilePath": "D:\\School\\Check-in\\back-end\\Core\\Core.csproj",
+  "projectFilePath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,7 +6,7 @@ namespace Check_in.Controllers
 {
     [Route("api/BoardingPass")]
     [ApiController]
-    public class TestController : ControllerBase
+    public class BoardingPassController : ControllerBase
     {
         [HttpPost(Name = "PostBoardingPass")]
         public BoardingPass Post([FromBody] BoardingPassString boardingPass)

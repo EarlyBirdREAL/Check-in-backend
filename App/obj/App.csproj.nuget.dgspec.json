@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School\\Check-in\\back-end\\App\\App.csproj": {}
+    "C:\\school\\CheckIn\\back-end\\App\\App.csproj": {}
   },
   "projects": {
-    "D:\\School\\Check-in\\back-end\\App\\App.csproj": {
+    "C:\\school\\CheckIn\\back-end\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\Check-in\\back-end\\App\\App.csproj",
+        "projectUniqueName": "C:\\school\\CheckIn\\back-end\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "D:\\School\\Check-in\\back-end\\App\\App.csproj",
-        "packagesPath": "C:\\Users\\Niek\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\Check-in\\back-end\\App\\obj\\",
+        "projectPath": "C:\\school\\CheckIn\\back-end\\App\\App.csproj",
+        "packagesPath": "C:\\Users\\frank\\.nuget\\packages\\",
+        "outputPath": "C:\\school\\CheckIn\\back-end\\App\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Niek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\frank\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\School\\Check-in\\back-end\\Core\\Core.csproj": {
-                "projectPath": "D:\\School\\Check-in\\back-end\\Core\\Core.csproj"
+              "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {
+                "projectPath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj"
               }
             }
           }
@@ -58,21 +62,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\School\\Check-in\\back-end\\Core\\Core.csproj": {
+    "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\Check-in\\back-end\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\School\\Check-in\\back-end\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Niek\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\Check-in\\back-end\\Core\\obj\\",
+        "projectPath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\frank\\.nuget\\packages\\",
+        "outputPath": "C:\\school\\CheckIn\\back-end\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Niek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\frank\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
