@@ -56,7 +56,7 @@ public class Parser
 
     private static string ParseFromCityAirportCode(string boardingPass)
     {
-        return boardingPass.Substring(31, 3);
+        return boardingPass.Substring(30, 3);
     }
 
     private static string ParseToCityAirportCode(string boardingPass)
