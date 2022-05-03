@@ -6,6 +6,11 @@ public class Parser
 {
     public BoardingPass Decode(string code)
     {
+        if (code.Length <= 58)
+        {
+            return new BoardingPass();
+        }
+        
         return Parse(code);
     }
 
@@ -41,7 +46,7 @@ public class Parser
 
     private static string ParsePassengerName(string boardingPass)
     {
-        return boardingPass.Substring(2, 20);
+        return boardingPass.Substring(2, 20).Trim();
     }
 
     private static string ParseElectronicTicketIndicator(string boardingPass)
@@ -51,7 +56,7 @@ public class Parser
 
     private static string ParseOperatingCarrierPnrCode(string boardingPass)
     {
-        return boardingPass.Substring(23, 7);
+        return boardingPass.Substring(23, 7).Trim();
     }
 
     private static string ParseFromCityAirportCode(string boardingPass)
@@ -66,12 +71,12 @@ public class Parser
 
     private static string ParseOperatingCarrierDesignator(string boardingPass)
     {
-        return boardingPass.Substring(36, 3);
+        return boardingPass.Substring(36, 3).Trim();
     }
 
     private static string ParseFlightNumber(string boardingPass)
     {
-        return boardingPass.Substring(39, 5);
+        return boardingPass.Substring(39, 5).Trim();
     }
 
     private static string ParseDateOfFlight(string boardingPass)
@@ -91,6 +96,6 @@ public class Parser
 
     private static string ParseCheckInSequenceNumber(string boardingPass)
     {
-        return boardingPass.Substring(52, 5);
+        return boardingPass.Substring(52, 5).Trim();
     }
 }
