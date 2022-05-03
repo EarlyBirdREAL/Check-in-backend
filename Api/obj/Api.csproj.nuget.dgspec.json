@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\school\\CheckIn\\back-end\\Api\\Api.csproj": {}
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\Api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\school\\CheckIn\\back-end\\Api\\Api.csproj": {
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\school\\CheckIn\\back-end\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\back-end\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\school\\CheckIn\\back-end\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\frank\\.nuget\\packages\\",
-        "outputPath": "C:\\school\\CheckIn\\back-end\\Api\\obj\\",
+        "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\Evers\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\frank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Evers\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,11 +28,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\school\\CheckIn\\back-end\\App\\App.csproj": {
-                "projectPath": "C:\\school\\CheckIn\\back-end\\App\\App.csproj"
+              "C:\\Users\\Evers\\RiderProjects\\back-end\\App\\App.csproj": {
+                "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\App\\App.csproj"
               },
-              "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {
-                "projectPath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj"
+              "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj"
+              },
+              "C:\\Users\\Evers\\RiderProjects\\back-end\\Database\\Database.csproj": {
+                "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Database\\Database.csproj"
               }
             }
           }
@@ -86,25 +85,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\school\\CheckIn\\back-end\\App\\App.csproj": {
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\school\\CheckIn\\back-end\\App\\App.csproj",
+        "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\back-end\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "C:\\school\\CheckIn\\back-end\\App\\App.csproj",
-        "packagesPath": "C:\\Users\\frank\\.nuget\\packages\\",
-        "outputPath": "C:\\school\\CheckIn\\back-end\\App\\obj\\",
+        "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\App\\App.csproj",
+        "packagesPath": "C:\\Users\\Evers\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\App\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\frank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Evers\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,8 +113,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {
-                "projectPath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj"
+              "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj"
               }
             }
           }
@@ -148,25 +143,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\frank\\.nuget\\packages\\",
-        "outputPath": "C:\\school\\CheckIn\\back-end\\Core\\obj\\",
+        "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Evers\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\frank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Evers\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -206,7 +197,67 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\Database\\Database.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\back-end\\Database\\Database.csproj",
+        "projectName": "Database",
+        "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Database\\Database.csproj",
+        "packagesPath": "C:\\Users\\Evers\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Database\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Evers\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.29, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

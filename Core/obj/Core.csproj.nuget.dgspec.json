@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {}
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj": {
+    "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\school\\CheckIn\\back-end\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\frank\\.nuget\\packages\\",
-        "outputPath": "C:\\school\\CheckIn\\back-end\\Core\\obj\\",
+        "projectPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Evers\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Evers\\RiderProjects\\back-end\\Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\frank\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Evers\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
