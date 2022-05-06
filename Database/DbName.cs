@@ -1,11 +1,20 @@
 
 using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
 namespace Database;
 
-public class DbName
+public class DbName : IDbName
 {
+    private readonly IConfiguration _configuration;
+
+    public DbName(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+    
     
     public string GetNames(string pnrCode)
     {
@@ -13,8 +22,8 @@ public class DbName
     }
     private string GetName(string pnrCode)
     {
-        
-        MySqlConnection con = new MySqlConnection("server=localhost;user=backend;database=rotterdam;password=root");
+        string connectionString = _configuration.GetValue<string>("DbVariables:ConnectionString");
+        MySqlConnection con = new MySqlConnection(connectionString);
         MySqlCommand cmd = new MySqlCommand("SELECT voornaam, achternaam FROM passagier WHERE PNR_code = @pnr", con);
         cmd.Parameters.AddWithValue("@pnr", pnrCode);
         con.Open();
