@@ -36,7 +36,7 @@ public class DbName : IDbName
         {
             fName = reader.GetString("voornaam");
             lName = reader.GetString("achternaam");
-            Name = lName + "/" + fName;
+            Name = lName + ", " + fName;
             return Name;
         }
 
