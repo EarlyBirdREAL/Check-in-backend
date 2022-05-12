@@ -14,17 +14,12 @@ app-build:
 
 tests:
   stage: test
-  script: 
-    - "dotnet test --no-restore"
-
-convert-junit:
-  stage: test
   script:
     # This could be made faster by adding these packages to base image or running in a separate job (and step)
     # We could use an image with these two depencencies only and only do the saxonb-xslt command on
     # previous job's artifacts
     - apt-get update && apt-get install -y default-jre libsaxonb-java
-    - chmod +x ./ci/test.sh && ./ci/test.sh
+    - "dotnet test --no-restore"
     - saxonb-xslt -s $CI_PROJECT_DIR/$TEST_PLATFORM-results.xml -xsl $CI_PROJECT_DIR/ci/nunit-transforms/nunit3-junit.xslt >$CI_PROJECT_DIR/junit-results.xml
   artifacts:
     when: always
