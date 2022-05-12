@@ -19,8 +19,8 @@ tests:
     # We could use an image with these two depencencies only and only do the saxonb-xslt command on
     # previous job's artifacts
     - apt-get update && apt-get install -y default-jre libsaxonb-java
-    - "dotnet test --no-restore"
-    - saxonb-xslt -s $CI_PROJECT_DIR/$TEST_PLATFORM-results.xml -xsl $CI_PROJECT_DIR/ci/nunit-transforms/nunit3-junit.xslt >$CI_PROJECT_DIR/junit-results.xml
+    - "dotnet test --no-restore --logger:\"nunit;LogFilePath=test-result.xml\""
+    - saxonb-xslt -s $CI_PROJECT_DIR/results.xml -xsl $CI_PROJECT_DIR/ci/nunit-transforms/nunit3-junit.xslt >$CI_PROJECT_DIR/junit-results.xml
   artifacts:
     when: always
     paths:
