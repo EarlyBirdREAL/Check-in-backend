@@ -29,6 +29,4 @@ tests:
     reports:
       junit:
         - $CI_PROJECT_DIR/junit-results.xml
-        - $CI_PROJECT_DIR/coverage/coverage.xml
     expire_in: 2 weeks
-  coverage: /<Linecoverage>(.*?)</Linecoverage>/
