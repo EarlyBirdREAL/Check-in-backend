@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using App.Services;
-using Core.Entities;
 
 namespace UnitTests;
 
