@@ -61,6 +61,7 @@ test:
     when: always
     paths:
       - "$test_path/TestResults"
+      - "$CI_PROJECT_DIR/test-result.xml"
     reports:
         junit:
           - $CI_PROJECT_DIR/test-result.xml
