@@ -35,19 +35,14 @@ build:
     - "dotnet build -c Debug --packages obj/dependencies"
   artifacts:
     paths:
-      - "bin/Release/net6.0/"
-      - "bin/Debug/net6.0/"
-
-tests:
-  stage: test
-  script:
-    - "dotnet test --no-restore --logger:\"nunit;LogFilePath=$CI_PROJECT_DIR/test-result.xml\""
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - $CI_PROJECT_DIR/test-result.xml
-    expire_in: 2 weeks
+      - "Api/bin/Release/net6.0/"
+      - "Api/bin/Debug/net6.0/"
+      - "App/bin/Release/net6.0/"
+      - "App/bin/Debug/net6.0/"
+      - "Core/bin/Release/net6.0/"
+      - "Core/bin/Debug/net6.0/"
+      - "Database/bin/Release/net6.0/"
+      - "Database/bin/Debug/net6.0/"
 
 test:
   stage: test
@@ -66,9 +61,11 @@ test:
     when: always
     paths:
       - "$test_path/TestResults"
+      - "$CI_PROJECT_DIR/test-result.xml"
     reports:
         junit:
           - $CI_PROJECT_DIR/test-result.xml
+    expire_in: 2 weeks
 
 #docker:
 #  stage: docker
