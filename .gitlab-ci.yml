@@ -50,11 +50,13 @@ test:
   before_script:
     - cd $test_path
     - apt update
-    - apt-get install libsaxonb-java -y
+    - apt install libsaxonb-java -y
   script:
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/test-result.xml"
-    - saxonb-xslt -s $CI_PROJECT_DIR/$TEST_PLATFORM-results.xml -xsl $test_path/ci/nunit-transforms/nunit3-junit.xslt >$test_path/$TEST_PLATFORM-junit-results.xml
+    - "saxonb-xslt -s $CI_PROJECT_DIR/test-results.xml -xsl \
+      $test_path/ci/nunit-transforms/nunit3-junit.xslt > \
+      $CI_PROJECT_DIR/junit-results.xml"
   artifacts:
     when: always
     paths:
