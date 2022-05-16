@@ -20,10 +20,10 @@ RUN dotnet restore "Core/Core.csproj"
 RUN dotnet restore "Database/Database.csproj"
 COPY . .
 WORKDIR "/src/Api"
-RUN dotnet build "Api.csproj" -c Development -o /app/build
+RUN dotnet build "Api.csproj" -c Production -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Api.csproj" -c Development -o /app/publish
+RUN dotnet publish "Api.csproj" -c Production -o /app/publish
 
 FROM base AS final
 WORKDIR /app
