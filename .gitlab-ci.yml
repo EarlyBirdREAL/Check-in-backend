@@ -54,7 +54,7 @@ test:
   script:
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/$test_path/testresult.xml"
-    - saxonb-xslt -s $CI_PROJECT_DIR/$test_path/testresults.xml -xsl $CI_PROJECT_DIR/ci/nunit3-junit.xslt > $CI_PROJECT_DIR/$test_path/junitresults.xml
+    - saxonb-xslt -s $test_path/testresults.xml -xsl $CI_PROJECT_DIR/ci/nunit3-junit.xslt > $test_path/junitresults.xml
   artifacts:
     when: always
     paths:
