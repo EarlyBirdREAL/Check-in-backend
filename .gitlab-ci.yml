@@ -1,94 +1,88 @@
-job_name:
-  script:
-    - export
+variables:
+  test_path: "UnitTests"
+  backend_container: "checkin-backend"
 
-#variables:
-#  test_path: "UnitTests"
-#  backend_container: "checkin-backend"
-#
-#stages:
-#  - restore
-#  - build
-#  - test
-#  - docker
-#
-#restore:
-#  stage: restore
-#  image: mcr.microsoft.com/dotnet/sdk:6.0
-#  only: &default_only_backend
-#    refs:
-#      - branches
-#      - tags
-#      - merge_requests
-#  script:
-#    - dotnet restore --packages obj/dependencies
-#  artifacts:
-#    paths:
-#      - "obj"
-#
-#build:
-#  stage: build
-#  needs: [ "restore" ]
-#  only:
-#    <<: *default_only_backend
-#  image: mcr.microsoft.com/dotnet/sdk:6.0
-#  script:
-#    - "dotnet build -c Release --packages obj/dependencies"
-#    - "dotnet build -c Debug --packages obj/dependencies"
-#  artifacts:
-#    paths:
-#      - "Api/bin/Release/net6.0/"
-#      - "Api/bin/Debug/net6.0/"
-#      - "App/bin/Release/net6.0/"
-#      - "App/bin/Debug/net6.0/"
-#      - "Core/bin/Release/net6.0/"
-#      - "Core/bin/Debug/net6.0/"
-#      - "Database/bin/Release/net6.0/"
-#      - "Database/bin/Debug/net6.0/"
-#
-#test:
-#  stage: test
-#  image: mcr.microsoft.com/dotnet/sdk:6.0
-#  needs: [ "restore", "build" ]
-#  only:
-#    <<: *default_only_backend
-#  before_script:
-#    - cd $test_path
-#    - apt update
-#    - apt install default-jre libsaxonb-java -y
-#  script:
-#    - dotnet test --collect:"XPlat Code Coverage"
-#    - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/$test_path/test-results.xml"
-#    - saxonb-xslt -s $CI_PROJECT_DIR/$test_path/test-results.xml -xsl $CI_PROJECT_DIR/ci/nunit3-junit.xslt > $CI_PROJECT_DIR/$test_path/junit-results.xml
-#  artifacts:
-#    when: always
-#    paths:
-#      - $test_path
-#    reports:
-#      junit:
-#        - $CI_PROJECT_DIR/$test_path/junit-results.xml
-#      coverage_report: 
-#        coverage_format: cobertura
-#        path: $CI_PROJECT_DIR/$test_path/TestResults/**/coverage.cobertura.xml
-#    expire_in: 2 weeks
-#
-#docker:
-#  stage: docker
-#  image: docker:dind
-#  tags:
-#    - docker
-#  needs: ["restore", "build", "test"]
-#  only:
-#    refs:
-#      - branches
-#      - tags
-#  variables:
-#    image_tag_backend:
-#      "$CI_REGISTRY/thuas/id-2122-spring/hybrid-check-in-desk/back-end:$CI_COMMIT_REF_SLUG"
-#  before_script:
-#    - "docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD"
-#  script:
-#    - "docker build -f Dockerfile -t $image_tag_backend ."
-#    - "docker push $image_tag_backend"
-#  after_script:
-#    - "docker logout registry.gitlab.com"
+stages:
+  - restore
+  - build
+  - test
+  - docker
+
+restore:
+  stage: restore
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  only: &default_only_backend
+    refs:
+      - branches
+      - tags
+      - merge_requests
+  script:
+    - dotnet restore --packages obj/dependencies
+  artifacts:
+    paths:
+      - "obj"
+
+build:
+  stage: build
+  needs: [ "restore" ]
+  only:
+    <<: *default_only_backend
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  script:
+    - "dotnet build -c Release --packages obj/dependencies"
+    - "dotnet build -c Debug --packages obj/dependencies"
+  artifacts:
+    paths:
+      - "Api/bin/Release/net6.0/"
+      - "Api/bin/Debug/net6.0/"
+      - "App/bin/Release/net6.0/"
+      - "App/bin/Debug/net6.0/"
+      - "Core/bin/Release/net6.0/"
+      - "Core/bin/Debug/net6.0/"
+      - "Database/bin/Release/net6.0/"
+      - "Database/bin/Debug/net6.0/"
+
+test:
+  stage: test
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  needs: [ "restore", "build" ]
+  only:
+    <<: *default_only_backend
+  before_script:
+    - cd $test_path
+    - apt update
+    - apt install default-jre libsaxonb-java -y
+  script:
+    - dotnet test --collect:"XPlat Code Coverage"
+    - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/$test_path/test-results.xml"
+    - saxonb-xslt -s $CI_PROJECT_DIR/$test_path/test-results.xml -xsl $CI_PROJECT_DIR/ci/nunit3-junit.xslt > $CI_PROJECT_DIR/$test_path/junit-results.xml
+  artifacts:
+    when: always
+    paths:
+      - $test_path
+    reports:
+      junit:
+        - $CI_PROJECT_DIR/$test_path/junit-results.xml
+      coverage_report: 
+        coverage_format: cobertura
+        path: $CI_PROJECT_DIR/$test_path/TestResults/**/coverage.cobertura.xml
+    expire_in: 2 weeks
+
+docker:
+  stage: docker
+  image: docker:dind
+  needs: ["restore", "build", "test"]
+  only:
+    refs:
+      - branches
+      - tags
+  variables:
+    image_tag_backend:
+      "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+  before_script:
+    - "docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD"
+  script:
+    - "docker build -f Dockerfile -t $image_tag_backend ."
+    - "docker push $image_tag_backend"
+  after_script:
+    - "docker logout registry.gitlab.com"
