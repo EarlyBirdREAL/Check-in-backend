@@ -55,8 +55,10 @@ test:
   before_script:
     - "cd $test_path"
   script:
+    - apt-get install libsaxonb-java
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/test-result.xml"
+    - saxonb-xslt -s $CI_PROJECT_DIR/$TEST_PLATFORM-results.xml -xsl $test_path/ci/nunit-transforms/nunit3-junit.xslt >$test_path/$TEST_PLATFORM-junit-results.xml
   artifacts:
     when: always
     paths:
@@ -65,6 +67,7 @@ test:
     reports:
         junit:
           - $CI_PROJECT_DIR/test-result.xml
+          - $CI_PROJECT_DIR/$TEST_PLATFORM-coverage/
     expire_in: 2 weeks
 
 #docker:
