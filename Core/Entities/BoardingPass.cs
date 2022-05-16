@@ -32,4 +32,5 @@ public class BoardingPass
     public string CompartmentCode { get; set; }
     public string SeatNumber { get; set; }
     public string CheckInSequenceNumber { get; set; }
+    public string? ErrorCode { get; set; }
 }
