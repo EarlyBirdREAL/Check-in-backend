@@ -1,5 +1,5 @@
 variables:
-  test_path: "Tests"
+  test_path: "UnitTests"
   backend_container: "checkin-backend"
 
 stages:
@@ -20,9 +20,6 @@ restore:
   artifacts:
     paths:
       - "obj"
-
-before_script:
-  - 'dotnet restore'
 
 build:
   stage: build
@@ -50,12 +47,10 @@ test:
   needs: ["build"]
   only:
     <<: *default_only_backend
-  variables:
-    test_path: "UnitTests"
   before_script:
-    - "cd $test_path"
-  script:
+    - cd $test_path
     - apt-get install libsaxonb-java
+  script:
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/test-result.xml"
     - saxonb-xslt -s $CI_PROJECT_DIR/$TEST_PLATFORM-results.xml -xsl $test_path/ci/nunit-transforms/nunit3-junit.xslt >$test_path/$TEST_PLATFORM-junit-results.xml
