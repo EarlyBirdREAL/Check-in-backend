@@ -44,12 +44,13 @@ build:
 test:
   stage: test
   image: mcr.microsoft.com/dotnet/sdk:6.0
-  needs: ["build"]
+  needs: ["restore", "build"]
   only:
     <<: *default_only_backend
   before_script:
     - cd $test_path
-    - apt-get install libsaxonb-java
+    - apt update
+    - apt-get install libsaxonb-java -y
   script:
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/test-result.xml"
@@ -64,6 +65,9 @@ test:
           - $CI_PROJECT_DIR/test-result.xml
           - $CI_PROJECT_DIR/$TEST_PLATFORM-coverage/
     expire_in: 2 weeks
+
+
+
 
 #docker:
 #  stage: docker
