@@ -64,9 +64,8 @@ test:
         - $CI_PROJECT_DIR/$test_path/junit-results.xml
       coverage_report: 
         coverage_format: cobertura
-        path: $CI_PROJECT_DIR/$test_path/TestResults
+        path: $CI_PROJECT_DIR/$test_path/TestResults/**/coverage.cobertura.xml
     expire_in: 2 weeks
-      coverage
 
 
 #docker:
