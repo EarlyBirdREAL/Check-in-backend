@@ -6,6 +6,7 @@ stages:
   - restore
   - build
   - test
+  - docker
 
 restore:
   stage: restore
@@ -67,23 +68,23 @@ test:
         path: $CI_PROJECT_DIR/$test_path/TestResults/**/coverage.cobertura.xml
     expire_in: 2 weeks
 
-
-#docker:
-#  stage: docker
-#  tags:
-#    - docker
-#  needs: ["restore", "build", "test"]
-#  only:
-#    refs:
-#      - branches
-#      - tags
-#  variables:
-#    image_tag_backend:
-#      "$CI_REGISTRY/thuas/id-2122-spring/hybrid-check-in-desk/back-end:$CI_COMMIT_REF_SLUG"
-#  before_script:
-#    - "docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD"
-#  script:
-#    - "docker build -f Dockerfile -t $image_tag_backend ."
-#    - "docker push $image_tag_backend"
-#  after_script:
-#    - "docker logout registry.gitlab.com"
+docker:
+  stage: docker
+  image: docker:dind
+  tags:
+    - docker
+  needs: ["restore", "build", "test"]
+  only:
+    refs:
+      - branches
+      - tags
+  variables:
+    image_tag_backend:
+      "$CI_REGISTRY/thuas/id-2122-spring/hybrid-check-in-desk/back-end:$CI_COMMIT_REF_SLUG"
+  before_script:
+    - "docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD"
+  script:
+    - "docker build -f Dockerfile -t $image_tag_backend ."
+    - "docker push $image_tag_backend"
+  after_script:
+    - "docker logout registry.gitlab.com"
