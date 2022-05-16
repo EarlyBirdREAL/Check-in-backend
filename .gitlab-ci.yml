@@ -62,7 +62,6 @@ test:
     reports:
       junit:
         - $CI_PROJECT_DIR/$test_path/junit-results.xml
-        - $CI_PROJECT_DIR/$test_path/TestResults
     expire_in: 2 weeks
 
 
