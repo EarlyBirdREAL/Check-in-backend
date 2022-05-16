@@ -53,15 +53,15 @@ test:
     - apt install default-jre libsaxonb-java -y
   script:
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-    - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/$test_path/testresult.xml"
-    - saxonb-xslt -s $test_path/testresults.xml -xsl $CI_PROJECT_DIR/ci/nunit3-junit.xslt > $test_path/junitresults.xml
+    - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/$test_path/test-result.xml"
+    - saxonb-xslt -s $CI_PROJECT_DIR/$test_path/test-results.xml -xsl $CI_PROJECT_DIR/ci/nunit3-junit.xslt > $CI_PROJECT_DIR/$test_path/junit-results.xml
   artifacts:
     when: always
     paths:
       - $test_path
     reports:
       junit:
-        - $CI_PROJECT_DIR/$test_path/junitresults.xml
+        - $CI_PROJECT_DIR/$test_path/junit-results.xml
         - $CI_PROJECT_DIR/$test_path/TestResults
     expire_in: 2 weeks
 
