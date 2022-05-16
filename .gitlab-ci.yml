@@ -23,7 +23,7 @@ restore:
 
 build:
   stage: build
-  needs: ["restore"]
+  needs: [ "restore" ]
   only:
     <<: *default_only_backend
   image: mcr.microsoft.com/dotnet/sdk:6.0
@@ -44,28 +44,27 @@ build:
 test:
   stage: test
   image: mcr.microsoft.com/dotnet/sdk:6.0
-  needs: ["restore", "build"]
+  needs: [ "restore", "build" ]
   only:
     <<: *default_only_backend
   before_script:
     - cd $test_path
     - apt update
-    - apt install libsaxonb-java -y
+    - apt install default-jre libsaxonb-java -y
   script:
     - dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     - dotnet test --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/test-result.xml"
-    - "saxonb-xslt -s $CI_PROJECT_DIR/test-results.xml -xsl \
-      $test_path/ci/nunit-transforms/nunit3-junit.xslt > \
-      $CI_PROJECT_DIR/junit-results.xml"
+    - saxonb-xslt -s $CI_PROJECT_DIR/test-results.xml -xsl $test_path/ci/nunit-transforms/nunit3-junit.xslt > $CI_PROJECT_DIR/junit-results.xml
   artifacts:
     when: always
     paths:
-      - "$test_path/TestResults"
-      - "$CI_PROJECT_DIR/test-result.xml"
+      - $test_path/TestResults
+      - $CI_PROJECT_DIR/test-result.xml
+      - $CI_PROJECT_DIR/junit-results.xml
     reports:
-        junit:
-          - $CI_PROJECT_DIR/test-result.xml
-          - $CI_PROJECT_DIR/$TEST_PLATFORM-coverage/
+      junit:
+        - $CI_PROJECT_DIR/junit-results.xml
+        - $CI_PROJECT_DIR/$test_path/TestResults
     expire_in: 2 weeks
 
 
