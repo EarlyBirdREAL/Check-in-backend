@@ -20,8 +20,8 @@ namespace Check_in.Controllers
         [HttpPost(Name = "PostBoardingPass")]
         public BoardingPass Post([FromBody] BoardingPassString boardingPass)
         {
-            
-            BoardingPass boarding = new Parser().Decode(boardingPass.BoardingPass);
+            BoardingPass boarding;
+            boarding = new Parser().Decode(boardingPass.BoardingPass);
             string fullName = _dbName.GetNames(boarding.OperatingCarrierPnrCode);
             if (fullName != "Undefined")
             {
