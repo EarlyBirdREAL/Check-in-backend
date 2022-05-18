@@ -72,6 +72,8 @@ docker:
   stage: docker
   image: docker:dind
   needs: ["restore", "build", "test"]
+  tags:
+    - "check-in-desk"
   only:
     refs:
       - branches
