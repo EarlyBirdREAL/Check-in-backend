@@ -71,8 +71,6 @@ test:
 docker:
   stage: docker
   image: docker:dind
-  tags:
-    - gitlab-org-docker
   needs: ["restore", "build", "test"]
   only:
     refs:
