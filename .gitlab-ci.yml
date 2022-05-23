@@ -73,7 +73,7 @@ docker:
   image: docker:dind
   needs: ["restore", "build", "test"]
   tags:
-    - "check-in-desk"
+    - "dind"
   only:
     refs:
       - branches
