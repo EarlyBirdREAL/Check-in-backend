@@ -70,8 +70,10 @@ test:
 
 docker:
   stage: docker
-  image: docker:dind
+  image: docker:20.10.16
   needs: ["restore", "build", "test"]
+  services:
+    - docker:20.10.16-dind
   tags:
     - "dind"
   only:
@@ -79,12 +81,16 @@ docker:
       - branches
       - tags
   variables:
-    image_tag_backend:
-      "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+        # Specify to Docker where to create the certificates. Docker
+        # creates them automatically on boot, and creates
+        # `/certs/client` to share between the service and job
+        # container, thanks to volume mount from config.toml
+        DOCKER_TLS_CERTDIR: "/certs"
+        image_tag: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   before_script:
-    - "docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD"
+      - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
   script:
-    - "docker build -f Dockerfile -t $image_tag_backend ."
-    - "docker push $image_tag_backend"
+      - docker build -f Dockerfile -t $image_tag .
+      - docker push $image_tag
   after_script:
-    - "docker logout registry.gitlab.com"
+      - docker logout $CI_REGISTRY
