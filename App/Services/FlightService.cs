@@ -29,7 +29,7 @@ public class FlightService : IFlightService
                 // new DateOnly(DateOnly.FromDateTime(DateTime.Now).Year, 01, 01).AddDays(Int32.Parse(aFlight.Datum));
             if (dateNow > dateThen)
             {
-                date = dateThen.AddYears(1);
+                date = dateThen.AddDays(1);
             }
             else
             {

@@ -4,19 +4,19 @@ public class BoardingPass
 {
     public BoardingPass()
     {
-        FormatCode = "";
+        FormatCode = " ";
         Legs = -1;
-        PassengerName = "";
-        ElectronicTicketIndicator = "";
-        OperatingCarrierPnrCode = "";
-        FromCityAirportCode = "";
-        ToCityAirportCode = "";
-        OperatingCarrierDesignator = "";
-        FlightNumber = "";
-        DateOfFlight = "";
-        CompartmentCode = "";
-        SeatNumber = "";
-        CheckInSequenceNumber = "";
+        PassengerName = " ";
+        ElectronicTicketIndicator = " ";
+        OperatingCarrierPnrCode = " ";
+        FromCityAirportCode = " ";
+        ToCityAirportCode = " ";
+        OperatingCarrierDesignator = " ";
+        FlightNumber = " ";
+        DateOfFlight = " ";
+        CompartmentCode = " ";
+        SeatNumber = " ";
+        CheckInSequenceNumber = " ";
     }
 
     public string FormatCode { get; set; }
@@ -32,5 +32,5 @@ public class BoardingPass
     public string CompartmentCode { get; set; }
     public string SeatNumber { get; set; }
     public string CheckInSequenceNumber { get; set; }
-    public string? ErrorCode { get; set; }
+    public string? BoardingPassString { get; set; }
 }
