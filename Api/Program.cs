@@ -13,6 +13,8 @@ builder.Services.AddScoped<IDbName, DbName>();
 builder.Services.AddScoped<IBoarding, Boarding>();
 builder.Services.AddScoped<IFlightService, FlightService>();
 builder.Services.AddScoped<IFlight, Database.Flight>();
+builder.Services.AddScoped<IAddPassengerService, AddPassengerService>();
+builder.Services.AddScoped<IDbAddPassenger, DbAddPassenger>();
 
 
 
