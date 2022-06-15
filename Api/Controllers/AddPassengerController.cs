@@ -8,6 +8,7 @@ namespace Check_in.Controllers;
 [ApiController]
 public class AddPassengerController : ControllerBase
 {
+    // TODO Add Correct DB Events with regard to Flight Number and operatingCarierDesignator
     [HttpGet("{flight}")]
     public async Task<IActionResult> Get([FromServices] IAddPassengerService addPassengerService, string flight, int passengers)
     {

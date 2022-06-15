@@ -47,20 +47,22 @@ public class AddPassengerService : IAddPassengerService
             };
             var boardingPass = CreatePassenger(addPassenger);
             boardingPasses.Add(boardingPass);
+            AddPassengerToDb(boardingPass);
         }
 
         IEnumerable<BoardingPass> boarding = boardingPasses;
         return boarding;
     }
-
+    // TODO Re-Ad function, it's needed
     // public Flight CreateFlight(Flight flight)
     // {
     //     
     // }
-
+    
+    // TODO Get this done too dumbass
     private void AddPassengerToDb(BoardingPass boardingPass)
     {
-        
+        _dbAddPassenger.PutPassenger(boardingPass);
     }
     private BoardingPass CreatePassengerBoardingPass(AddPassenger passenger)
     {
@@ -69,7 +71,7 @@ public class AddPassengerService : IAddPassengerService
         boardingPass.CompartmentCode = "F";
         boardingPass.FlightNumber = passenger.VluchtNummer/*.Substring(2)*/;
         boardingPass.FormatCode = "M";
-        boardingPass.PassengerName = passenger.Voornaam + " " + passenger.Achternaam;
+        boardingPass.PassengerName = passenger.Voornaam + "/" + passenger.Achternaam;
         boardingPass.SeatNumber = passenger.Stoel;
         boardingPass.ElectronicTicketIndicator = "E";
         boardingPass.OperatingCarrierDesignator = passenger.VluchtNummer.Substring(0, 2);
@@ -78,6 +80,17 @@ public class AddPassengerService : IAddPassengerService
         boardingPass.FromCityAirportCode = boarding2.FromCityAirportCode;
         boardingPass.ToCityAirportCode = boarding2.ToCityAirportCode;
         boardingPass.OperatingCarrierPnrCode = boarding2.OperatingCarrierPnrCode;
+        boardingPass.BoardingPassString = boardingPass.FormatCode + boardingPass.Legs +
+                                          boardingPass.PassengerName.PadRight(20).Substring(0, 20) +
+                                          boardingPass.ElectronicTicketIndicator +
+                                          boardingPass.OperatingCarrierPnrCode.PadRight(7).Substring(0, 7) +
+                                          boardingPass.FromCityAirportCode + boardingPass.ToCityAirportCode +
+                                          boardingPass.OperatingCarrierDesignator.PadRight(3).Substring(0, 3) +
+                                          boardingPass.FlightNumber.PadRight(5).Substring(0, 5) + "001" +
+                                          boardingPass.CompartmentCode +
+                                          boardingPass.SeatNumber.PadRight(4).Substring(0, 4) +
+                                          boardingPass.CheckInSequenceNumber.PadRight(5).Substring(0, 5) +
+                                          "    ";
         return boardingPass;
     }
     
