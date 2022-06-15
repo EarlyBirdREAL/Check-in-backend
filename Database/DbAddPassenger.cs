@@ -34,9 +34,12 @@ public class DbAddPassenger : IDbAddPassenger
         return Boarding;
     }
 
+    // TODO More here too asshole
     public void PutPassenger(BoardingPass boardingPass)
     {
-        
+        // string connectionString = _configuration.GetValue<string>("DbVariables:ConnectionString");
+        // MySqlConnection con = new MySqlConnection(connectionString);
+        // MySqlCommand cmd = new MySqlCommand("INSERT INTO ")
     }
 
     private string GetPnrCode()
@@ -102,6 +105,6 @@ public class DbAddPassenger : IDbAddPassenger
             return Int32.Parse(reader.GetValue(0).ToString()) + 1;
         }
 
-        return 0;
+        return 1;
     }
 }

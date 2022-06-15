@@ -2,6 +2,7 @@ using System.Net.WebSockets;
 using System.Text;
 using Core.Entities;
 using MySqlX.XDevAPI;
+using SocketIOClient;
 
 namespace App.Services;
 
@@ -13,18 +14,19 @@ public class ScaleService
     private static int[] avgList = new int[300];
     public int GetScaleData(int weight)
     {
-        return GetData(weight);
+        GetData(weight);
+        return weight;
     }
 
-    private int GetData(int weight)
+    private async void GetData(int weight)
     {
         if (_scaleWeight == 0)
         {
             _scaleWeight = weight;
-            return weight;
+
         }
 
-        if (_countAt<= Count)
+        if (_countAt <= Count)
         {
             if (weight - _scaleWeight < 1 && weight - _scaleWeight > -1)
             {
@@ -43,31 +45,13 @@ public class ScaleService
             double avg = Queryable.Average(avgList.AsQueryable());
             _countAt = 0;
             _scaleWeight = 0;
-            try
+            using (var client = new SocketIO("http://ws.rthia.hbo-ict.com:8082"))
             {
-                CancellationTokenSource source = new CancellationTokenSource();
-                CancellationToken token = source.Token;
-                var exitEvent = new ManualResetEvent(false);
-                var url = new Uri("ws://websocketserver.rthia.hbo-ict.com:80");
-
-                using (var client = new ClientWebSocket())
-                {
-                    client.ConnectAsync(url, token);
-                    var bytes = Encoding.ASCII.GetBytes($@"\{{weight: {avg}\}}");
-                    ArraySegment<Byte> byteSegment = new ArraySegment<byte>(bytes);
-                    client.SendAsync(byteSegment, WebSocketMessageType.Binary, WebSocketMessageFlags.EndOfMessage,
-                        token);
-                }
-
-                return Int32.Parse(avg.ToString());
+                await client.ConnectAsync();
+                await client.EmitAsync("data", new {weight = weight});
             }
-            catch
-            {
-                return Int32.Parse(avg.ToString());
-            }
+
+
         }
-
-        return weight;
-
     }
 }

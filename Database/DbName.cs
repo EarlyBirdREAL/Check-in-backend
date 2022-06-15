@@ -18,10 +18,10 @@ public class DbName : IDbName
         {
             throw new ArgumentNullException(nameof(pnrCode));
         }
-        if (pnrCode.Length != 6)
-        {
-            throw new ArgumentException(nameof(pnrCode));
-        }
+        // if (pnrCode.Length != 7)
+        // {
+        //     throw new ArgumentException(nameof(pnrCode));
+        // }
         return GetName(pnrCode);
     }
 
