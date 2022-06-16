@@ -16,7 +16,7 @@ public class ScaleController : ControllerBase
     public async Task<IActionResult> Get(int weight)
     {
         var avgWeight = new ScaleService().GetScaleData(weight);
-        var result = ApiResult<int>.Success(avgWeight);
+        var result = ApiResult<Task<int>>.Success(avgWeight);
         return Ok(result);
     }
 }
