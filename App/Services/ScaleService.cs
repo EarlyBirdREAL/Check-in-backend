@@ -12,9 +12,9 @@ public class ScaleService
     private static int _scaleWeight = 0;
     private static int _countAt = 0;
     private static int[] avgList = new int[11];
-    public int GetScaleData(int weight)
+    public async Task<int> GetScaleData(int weight)
     {
-        GetData(weight);
+        await GetData(weight);
         return weight;
     }
 
