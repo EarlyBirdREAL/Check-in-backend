@@ -33,7 +33,7 @@ public class ScaleService
                 avgList[_countAt] = weight;
                 _countAt++;
                 _scaleWeight = weight;
-                return _scaleWeight;
+                return _countAt;
             }
             else
             {
