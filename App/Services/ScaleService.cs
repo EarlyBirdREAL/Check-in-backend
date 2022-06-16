@@ -8,10 +8,10 @@ namespace App.Services;
 
 public class ScaleService 
 {
-    private const int Count = 100;
+    private const int Count = 10;
     private static int _scaleWeight = 0;
     private static int _countAt = 0;
-    private static int[] avgList = new int[101];
+    private static int[] avgList = new int[11];
     public int GetScaleData(int weight)
     {
         GetData(weight);
@@ -42,7 +42,7 @@ public class ScaleService
                 return 999999;
             }
         }
-        else if (_countAt > 100)
+        else if (_countAt > 10)
         {
             double avg = Queryable.Average(avgList.AsQueryable());
             _countAt = 0;
