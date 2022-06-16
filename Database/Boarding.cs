@@ -22,7 +22,7 @@ public class Boarding : IBoarding
             new MySqlCommand(
                 "SELECT voornaam, achternaam, checkInSequenceNumber, stoel  FROM passagier WHERE vluchtnummer = @FN",
                 con);
-        cmd.Parameters.AddWithValue("@FN", "348582");
+        cmd.Parameters.AddWithValue("@FN", flight);
         con.Open();
         MySqlDataReader reader;
         reader = cmd.ExecuteReader();

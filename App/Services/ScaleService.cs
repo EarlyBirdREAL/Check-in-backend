@@ -11,19 +11,19 @@ public class ScaleService
     private const int Count = 300;
     private static int _scaleWeight = 0;
     private static int _countAt = 0;
-    private static int[] avgList = new int[300];
+    private static int[] avgList = new int[301];
     public int GetScaleData(int weight)
     {
         GetData(weight);
         return weight;
     }
 
-    private async void GetData(int weight)
+    private async Task<int> GetData(int weight)
     {
         if (_scaleWeight == 0)
         {
             _scaleWeight = weight;
-
+            return _scaleWeight;
         }
 
         if (_countAt <= Count)
@@ -33,11 +33,13 @@ public class ScaleService
                 avgList[_countAt] = weight;
                 _countAt++;
                 _scaleWeight = weight;
+                return _scaleWeight;
             }
             else
             {
                 _countAt = 0;
                 _scaleWeight = 0;
+                return _scaleWeight;
             }
         }
         else if (_countAt > 300)
@@ -48,10 +50,14 @@ public class ScaleService
             using (var client = new SocketIO("http://ws.rthia.hbo-ict.com:8082"))
             {
                 await client.ConnectAsync();
-                await client.EmitAsync("data", new {weight = weight});
+                await client.EmitAsync("data", new {weight = avg});
             }
+
+            return weight;
 
 
         }
+
+        return weight;
     }
 }
