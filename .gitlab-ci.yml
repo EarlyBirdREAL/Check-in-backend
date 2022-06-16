@@ -21,8 +21,6 @@ restore:
   artifacts:
     paths:
       - "obj"
-  tags:
-    - "kutjoch"
 
 build:
   stage: build
@@ -43,8 +41,6 @@ build:
       - "Core/bin/Debug/net6.0/"
       - "Database/bin/Release/net6.0/"
       - "Database/bin/Debug/net6.0/"
-  tags:
-    - "kutjoch"
 
 test:
   stage: test
@@ -71,8 +67,6 @@ test:
         coverage_format: cobertura
         path: $CI_PROJECT_DIR/$test_path/TestResults/**/coverage.cobertura.xml
     expire_in: 2 weeks
-  tags:
-    - "kutjoch"
 
 docker:
   stage: docker
