@@ -14,8 +14,7 @@ public class ScaleService
     private static int[] avgList = new int[11];
     public async Task<int> GetScaleData(int weight)
     {
-        await GetData(weight);
-        return weight;
+        return await GetData(weight);
     }
 
     private async Task<int> GetData(int weight)
@@ -23,7 +22,7 @@ public class ScaleService
         if (_scaleWeight == 0)
         {
             _scaleWeight = weight;
-            return _scaleWeight;
+            return _countAt;
         }
 
         if (_countAt <= Count)
@@ -53,11 +52,11 @@ public class ScaleService
                 await client.EmitAsync("data", new {weight = avg});
             }
 
-            return weight;
+            return _countAt;
 
 
         }
 
-        return weight;
+        return _countAt;
     }
 }
