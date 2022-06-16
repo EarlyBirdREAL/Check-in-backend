@@ -46,7 +46,7 @@ public class ScaleService
             double avg = Queryable.Average(avgList.AsQueryable());
             _countAt = 0;
             _scaleWeight = 0;
-            using (var client = new SocketIO("http://ws.rthia.hbo-ict.com:8082"))
+            using (var client = new SocketIO("ws://ws.rthia.hbo-ict.com:8082"))
             {
                 await client.ConnectAsync();
                 await client.EmitAsync("data", new {weight = avg});
