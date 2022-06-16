@@ -28,7 +28,7 @@ public class ScaleService
 
         if (_countAt <= Count)
         {
-            if (weight - _scaleWeight < 1 && weight - _scaleWeight > -1)
+            if (weight - _scaleWeight < 10 && weight - _scaleWeight > -10)
             {
                 avgList[_countAt] = weight;
                 _countAt++;
@@ -39,7 +39,7 @@ public class ScaleService
             {
                 _countAt = 0;
                 _scaleWeight = 0;
-                return _scaleWeight;
+                return 999999;
             }
         }
         else if (_countAt > 300)
