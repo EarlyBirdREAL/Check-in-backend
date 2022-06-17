@@ -3,6 +3,7 @@ using System.Text;
 using Core.Entities;
 using MySqlX.XDevAPI;
 using SocketIOClient;
+using Ubiety.Dns.Core;
 
 namespace App.Services;
 
@@ -46,11 +47,12 @@ public class ScaleService
             double avg = Queryable.Average(avgList.AsQueryable());
             _countAt = 0;
             _scaleWeight = 0;
-            using (var client = new SocketIO("ws://ws.rthia.hbo-ict.com:8082"))
+            using (var client = new SocketIO("ws://10.110.0.2:8082"))
             {
                 await client.ConnectAsync();
                 await client.EmitAsync("data", new {weight = avg});
             }
+            System.Diagnostics.Debug.WriteLine("test");
 
             return _countAt;
 
