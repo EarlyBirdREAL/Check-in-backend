@@ -7,11 +7,16 @@ public class DbName : IDbName
 {
     private readonly IConfiguration _configuration;
 
-    public DbName(IConfiguration configuration)
+    private DbName(IConfiguration configuration)
     {
         _configuration = configuration;
     }
-    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pnrCode"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public string GetNames(string pnrCode)
     {
         if (pnrCode == null)

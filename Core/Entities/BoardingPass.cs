@@ -2,6 +2,11 @@ namespace Core.Entities;
 
 public class BoardingPass
 {
+    /// <summary>
+    /// Contains all the fields a boarding pass contains,
+    /// including the full boarding pass string
+    /// <see cref="BoardingPass"/>
+    /// </summary>
     public BoardingPass()
     {
         FormatCode = " ";

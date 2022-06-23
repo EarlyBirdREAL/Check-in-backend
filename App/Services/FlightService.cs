@@ -11,6 +11,13 @@ public class FlightService : IFlightService
     {
         _flight = flight;
     }
+    /// <summary>
+    /// This function requests all the flights from the database Layer.
+    /// For each flight it 
+    /// then calculates what time boarding is at by a set offset.
+    /// It also refactors the julian date (0-365) to DD-MM-YYYY
+    /// </summary>
+    /// <returns><b>IEnumerable</b> - <see cref="Flight"/></returns>
     public IEnumerable<Flight> GetAllFlightsAsync()
     {
         return  GetAllFlightAsync();

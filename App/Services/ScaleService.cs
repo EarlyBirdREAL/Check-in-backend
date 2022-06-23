@@ -20,15 +20,18 @@ public class ScaleService
 
     private async Task<int> GetData(int weight)
     {
-        if (_scaleWeight == 0)
+        
+        if (_scaleWeight == 0 || weight < 3)
         {
             _scaleWeight = weight;
+            _countAt = 0;
+            Array.Clear(avgList, 0, avgList.Length);
             return _countAt;
         }
 
         if (_countAt <= Count)
         {
-            if (weight - _scaleWeight < 10 && weight - _scaleWeight > -10)
+            if (weight - _scaleWeight < 2 && weight - _scaleWeight > -2 || weight < 8)
             {
                 avgList[_countAt] = weight;
                 _countAt++;
@@ -39,6 +42,7 @@ public class ScaleService
             {
                 _countAt = 0;
                 _scaleWeight = 0;
+                Array.Clear(avgList, 0, avgList.Length);
                 return 999999;
             }
         }
@@ -47,13 +51,14 @@ public class ScaleService
             double avg = Queryable.Average(avgList.AsQueryable());
             _countAt = 0;
             _scaleWeight = 0;
+            Array.Clear(avgList, 0, avgList.Length);
             using (var client = new SocketIO("ws://ws.rthia.hbo-ict.com:8082"))
             {
                 await client.ConnectAsync();
                 await client.EmitAsync("data", new {weight = avg});
             }
             System.Diagnostics.Debug.WriteLine("test");
-
+            Array.Clear(avgList, 0, avgList.Length);
             return _countAt;
 
 

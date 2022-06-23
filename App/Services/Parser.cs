@@ -13,7 +13,7 @@ public class Parser
         
         return Parse(code);
     }
-
+    
     private static BoardingPass Parse(string code)
     {
         return new BoardingPass
